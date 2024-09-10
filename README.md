@@ -55,11 +55,14 @@ TBD!
 
 ## Change logs
 
-### 2024-XX-XX - {Theme of changes if applicable}
+### 2024-09-10 - Backend CRUD development
 
-- {Change 1}
-- {Change 2}
-- {Change 3}
+- Implemented Create/Read methods
+- Created simple exception handler
+
+### 2024-09-09 - Initialization
+
+- Created project and installed dependencies
 
 ---
 

@@ -2,8 +2,6 @@ package io.nology.backend.employee;
 
 import org.hibernate.validator.constraints.Length;
 
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
 
 public class CreateEmployeeDTO {
@@ -21,21 +19,21 @@ public class CreateEmployeeDTO {
     @Length(max = 60)
     private String pronouns;
 
-    @NotBlank
+    // @NotBlank
     private String email;
 
-    @NotBlank
+    // @NotBlank
     private String mobile;
 
-    @NotBlank
+    // @NotBlank
     private String address;
 
     private String contractType;
 
-    @Temporal(TemporalType.DATE)
+    // @Temporal(TemporalType.DATE)
     private String startDate;
 
-    @Temporal(TemporalType.DATE)
+    // @Temporal(TemporalType.DATE)
     private String endDate;
 
     private Boolean currentEmployee;

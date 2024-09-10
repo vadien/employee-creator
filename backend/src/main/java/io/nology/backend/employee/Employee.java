@@ -1,15 +1,11 @@
 package io.nology.backend.employee;
 
-import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
@@ -49,26 +45,23 @@ public class Employee {
     @Column
     private String pronouns;
 
-    @NotBlank
     @Column
     private String email;
 
-    @NotBlank
     @Column
     private String mobileNumber;
 
-    @NotBlank
     @Column
     private String address;
 
     @Column
     private String contractType;
 
-    @Temporal(TemporalType.DATE)
-    private Date startDate;
+    @Column
+    private String startDate;
 
-    @Temporal(TemporalType.DATE)
-    private Date endDate;
+    @Column
+    private String endDate;
 
     @Column
     private Boolean currentEmployee;
@@ -137,19 +130,19 @@ public class Employee {
         this.contractType = contractType;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
