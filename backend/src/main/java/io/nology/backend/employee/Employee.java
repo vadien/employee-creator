@@ -66,6 +66,14 @@ public class Employee {
     @Column
     private Boolean currentEmployee;
 
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
