@@ -1,7 +1,14 @@
-import "./App.css";
+import { useEffect } from "react";
+import "./App.scss";
+import { getAllEmployees } from "./services/employee-services";
 
 function App() {
-  return <></>;
+  useEffect(() => {
+    getAllEmployees().then((data) => {
+      console.log(data);
+    });
+  }, []);
+  return <>App</>;
 }
 
 export default App;
