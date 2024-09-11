@@ -16,16 +16,16 @@ public class CreateEmployeeDTO {
     @Length(min = 1, max = 60)
     private String lastName;
 
-    @Length(max = 60)
-    private String pronouns;
+    // @Length(max = 60)
+    // private String pronouns;
 
-    // @NotBlank
+    @NotBlank
     private String email;
 
-    // @NotBlank
+    @NotBlank
     private String mobile;
 
-    // @NotBlank
+    @NotBlank
     private String address;
 
     private String contractType;
@@ -34,7 +34,7 @@ public class CreateEmployeeDTO {
     private String startDate;
 
     // @Temporal(TemporalType.DATE)
-    private String endDate;
+    // private String endDate;
 
     private Boolean currentEmployee;
 
@@ -62,13 +62,13 @@ public class CreateEmployeeDTO {
         this.lastName = lastName;
     }
 
-    public String getPronouns() {
-        return pronouns;
-    }
+    // public String getPronouns() {
+    // return pronouns;
+    // }
 
-    public void setPronouns(String pronouns) {
-        this.pronouns = pronouns;
-    }
+    // public void setPronouns(String pronouns) {
+    // this.pronouns = pronouns;
+    // }
 
     public String getEmail() {
         return email;
@@ -110,13 +110,13 @@ public class CreateEmployeeDTO {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
-        return endDate;
-    }
+    // public String getEndDate() {
+    // return endDate;
+    // }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
+    // public void setEndDate(String endDate) {
+    // this.endDate = endDate;
+    // }
 
     public Boolean getCurrentEmployee() {
         return currentEmployee;

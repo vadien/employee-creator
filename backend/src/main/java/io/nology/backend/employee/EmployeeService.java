@@ -29,10 +29,10 @@ public class EmployeeService {
         ValidationErrors errors = new ValidationErrors();
         Employee newEmployee = new Employee();
         newEmployee.setFirstName(capitaliseAndTrimString(data.getFirstName()));
-        newEmployee.setMiddleNames(capitaliseAndTrimString(data.getMiddleNames()));
-
+        if (data.getMiddleNames() != null) {
+            newEmployee.setMiddleNames(capitaliseAndTrimString(data.getMiddleNames()));
+        }
         newEmployee.setLastName(capitaliseAndTrimString(data.getLastName()));
-        newEmployee.setPronouns(data.getPronouns().toLowerCase().trim());
 
         newEmployee.setEmail(data.getEmail().toLowerCase().trim());
         newEmployee.setMobileNumber(data.getMobile().trim());
@@ -40,7 +40,6 @@ public class EmployeeService {
 
         newEmployee.setContractType(data.getContractType());
         newEmployee.setStartDate(data.getStartDate());
-        newEmployee.setEndDate(data.getEndDate());
         newEmployee.setCurrentEmployee(data.getCurrentEmployee());
         return this.repo.save(newEmployee);
     }

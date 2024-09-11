@@ -42,8 +42,8 @@ public class Employee {
     @Column
     private String lastName;
 
-    @Column
-    private String pronouns;
+    // @Column
+    // private String pronouns;
 
     @Column
     private String email;
@@ -60,8 +60,8 @@ public class Employee {
     @Column
     private String startDate;
 
-    @Column
-    private String endDate;
+    // @Column
+    // private String endDate;
 
     @Column
     private Boolean currentEmployee;
@@ -98,13 +98,13 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public String getPronouns() {
-        return pronouns;
-    }
+    // public String getPronouns() {
+    // return pronouns;
+    // }
 
-    public void setPronouns(String pronouns) {
-        this.pronouns = pronouns;
-    }
+    // public void setPronouns(String pronouns) {
+    // this.pronouns = pronouns;
+    // }
 
     public String getEmail() {
         return email;
@@ -146,13 +146,13 @@ public class Employee {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
-        return endDate;
-    }
+    // public String getEndDate() {
+    // return endDate;
+    // }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
+    // public void setEndDate(String endDate) {
+    // this.endDate = endDate;
+    // }
 
     public Boolean getCurrentEmployee() {
         return currentEmployee;

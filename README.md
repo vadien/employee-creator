@@ -55,10 +55,15 @@ TBD!
 
 ## Change logs
 
+### 2024-09-11 - Frontend CRUD development
+
+- Installed React testing suite
+
 ### 2024-09-10 - Backend CRUD development
 
 - Implemented Create/Read methods
 - Created simple exception handler
+- Created first passing tests
 
 ### 2024-09-09 - Initialization
 
