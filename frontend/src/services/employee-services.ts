@@ -25,6 +25,15 @@ export const getAllEmployees = async () => {
   return (await response.data) as EmployeeResponse[];
 };
 
+// get one
+export const getEmployeeById = async (id: number) => {
+  const response = await axios.get(`${baseUrl}/employees/${id}`);
+  if (response.status !== 200) {
+    throw new Error("Failed to fetch employee with id " + id);
+  }
+  return (await response.data) as EmployeeResponse;
+};
+
 // create
 export const createEmployee = async (data: EmployeeFormData) => {
   const response = await axios.post(`${baseUrl}/employees`, {
