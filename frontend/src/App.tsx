@@ -23,6 +23,7 @@ function App() {
             <Route path="/" element={<EmployeeListPage />}></Route>
             <Route path="/employees/:id" element={<EmployeePageLoader />}></Route>
             <Route path="/employees/:id/edit" element={<EmployeeForm />}></Route>
+            <Route path="/employees/create" element={<EmployeeForm />}></Route>
           </Routes>
         </QueryClientProvider>
       </BrowserRouter>

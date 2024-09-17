@@ -1,11 +1,11 @@
-import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
+import { Link } from "react-router-dom";
 import EmployeesLoader from "../../containers/EmployeesLoader/EmployeesLoader";
 
 const EmployeeListPage = () => {
   return (
     <div>
       <h1>Employee List</h1>
-      <button>New Employee</button>
+      <Link to={`employees/create`}>New Employee</Link>
       <EmployeesLoader />
     </div>
   );
