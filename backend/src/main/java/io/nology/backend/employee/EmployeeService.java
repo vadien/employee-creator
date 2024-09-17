@@ -56,4 +56,13 @@ public class EmployeeService {
         return capString.trim();
     }
 
+    public Optional<Employee> deleteById(Long id) {
+        Optional<Employee> result = this.findById(id);
+        if (result.isEmpty()) {
+            return result;
+        }
+        this.repo.deleteById(id);
+        return result;
+    }
+
 }

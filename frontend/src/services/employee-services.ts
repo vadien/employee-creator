@@ -40,8 +40,17 @@ export const createEmployee = async (data: EmployeeFormData) => {
     headers: { "Content-Type": "application/json" },
     data: data,
   });
-  if (response.status !== 200) {
+  if (response.status !== 201) {
     throw new Error("Failed to create employee");
+  }
+  return (await response.data) as EmployeeResponse;
+};
+
+// delete
+export const deleteEmployee = async (id: number) => {
+  const response = await axios.delete(`${baseUrl}/employees/${id}`);
+  if (response.status !== 200) {
+    throw new Error("Failed to delete employee with id " + id);
   }
   return (await response.data) as EmployeeResponse;
 };
