@@ -36,10 +36,22 @@ export const getEmployeeById = async (id: number) => {
 
 // create
 export const createEmployee = async (data: EmployeeFormData) => {
-  const response = await axios.post(`${baseUrl}/employees`, {
-    headers: { "Content-Type": "application/json" },
-    data: data,
-  });
+  const response = await axios.post(
+    `${baseUrl}/employees`,
+    {
+      firstName: data.firstName,
+      middleNames: data.middleNames,
+      lastName: data.lastName,
+      email: data.email,
+      mobile: data.mobileNumber,
+      address: data.address,
+      contractType: data.contractType,
+      startDate: data.startDate,
+      currentEmployee: data.currentEmployee,
+      endDate: data.endDate,
+    },
+    { headers: { "Content-Type": "application/json" } }
+  );
   if (response.status !== 201) {
     throw new Error("Failed to create employee");
   }

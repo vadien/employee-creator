@@ -5,7 +5,13 @@ const alphaRegex = new RegExp("^[A-Za-z ]+$");
 export const schema = z
   .object({
     firstName: z.string().min(1).max(250).regex(alphaRegex),
-    middleNames: z.string().min(1).max(250).regex(alphaRegex).optional(),
+    middleNames: z
+      .string()
+      .min(1)
+      .max(250)
+      .regex(alphaRegex)
+      .optional()
+      .or(z.literal("")),
     lastName: z.string().min(1).max(250).regex(alphaRegex),
     email: z.string().email(),
     mobileNumber: z.string().min(1).max(250),
@@ -13,7 +19,7 @@ export const schema = z
     contractType: z.string(),
     startDate: z.date(),
     currentEmployee: z.boolean(),
-    endDate: z.date().optional(),
+    endDate: z.date().optional().or(z.literal("")),
   })
   .refine(
     ({ currentEmployee, endDate }) => {
