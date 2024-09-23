@@ -9,7 +9,7 @@ type FormType = "CREATE" | "EDIT";
 
 interface EmployeeFormProps {
   formType?: FormType;
-  onSubmit: (data: EmployeeFormData) => unknown;
+  onSubmit: (data: EmployeeFormData, id?: any) => unknown;
   defaultValues?: EmployeeFormData;
 }
 

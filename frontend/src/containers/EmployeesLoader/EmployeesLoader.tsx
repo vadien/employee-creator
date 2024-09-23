@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
-import {
-  deleteEmployee,
-  EmployeeResponse,
-  getAllEmployees,
-} from "../../services/employee-services";
+import { useState } from "react";
+import { deleteEmployee, getAllEmployees } from "../../services/employee-services";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const EmployeesLoader = () => {
-  const [employees, setEmployees] = useState<EmployeeResponse[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const queryClient = useQueryClient();
 
@@ -17,27 +12,13 @@ const EmployeesLoader = () => {
     queryFn: getAllEmployees,
   });
 
-  // useEffect(() => {
-  //   getAllEmployees()
-  //     .then((data) => setEmployees(data))
-  //     .catch((e) => console.log(e));
-  // }, []);
-
   const onRemove = async (id: number) => {
-    if (confirm("Are you sure you want to delete this employee record?")) {
-      const deleteSuccess = await deleteEmployee(id)
-        .then(() => {
-          return true;
-        })
-        .catch((e) => {
-          setError(e);
-          return false;
-        });
-      // if (deleteSuccess) {
-      //   const updatedEmployees = employees.filter((em) => em.id !== id);
-      //   setEmployees(updatedEmployees);
-      // }
+    if (!confirm("Are you sure you want to delete this employee record?")) {
+      return;
     }
+    await deleteEmployee(id).catch((e) => {
+      setError(e);
+    });
   };
 
   const removeMutation = useMutation({

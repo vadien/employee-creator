@@ -58,6 +58,29 @@ export const createEmployee = async (data: EmployeeFormData) => {
   return (await response.data) as EmployeeResponse;
 };
 
+export const updateEmployee = async (id: number, data: EmployeeFormData) => {
+  const response = await axios.put(
+    `${baseUrl}/employees/${id}/edit`,
+    {
+      firstName: data.firstName,
+      middleNames: data.middleNames,
+      lastName: data.lastName,
+      email: data.email,
+      mobile: data.mobileNumber,
+      address: data.address,
+      contractType: data.contractType,
+      startDate: data.startDate,
+      currentEmployee: data.currentEmployee,
+      endDate: data.endDate,
+    },
+    { headers: { "Content-Type": "application/json" } }
+  );
+  if (response.status !== 200) {
+    throw new Error("Failed to update employee");
+  }
+  return (await response.data) as EmployeeResponse;
+};
+
 // delete
 export const deleteEmployee = async (id: number) => {
   const response = await axios.delete(`${baseUrl}/employees/${id}`);
