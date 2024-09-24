@@ -1,3 +1,24 @@
+.EmployeeCard {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1px solid #d0d0d0;
+  padding: 10px 0;
+  font-weight: 400;
+}
+
+.employeeName,
+.links {
+  font-weight: 500;
+}
+
+.employeeDetails {
+  color: rgb(85, 85, 85);
+}
+
 .deleteBtn {
   all: unset;
   color: blue;

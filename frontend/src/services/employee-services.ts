@@ -14,6 +14,7 @@ export interface EmployeeResponse {
   contractType: string;
   startDate: string;
   currentEmployee: boolean;
+  endDate: string;
 }
 
 // get all

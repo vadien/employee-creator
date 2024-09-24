@@ -10,16 +10,18 @@ interface EmployeeCard {
 const EmployeeCard = ({ employee, onRemove }: EmployeeCard) => {
   return (
     <div className={styles.EmployeeCard}>
-      <hr />
-      <div>
-        {employee.lastName}, {employee.firstName}
+      <div className={styles.employeeInfo}>
+        <div className={styles.employeeName}>
+          {employee.lastName}, {employee.firstName} -{" "}
+          {!employee.currentEmployee ? "Former employee" : employee.contractType}
+        </div>
+        <div className={styles.employeeDetails}>
+          {employee.mobileNumber} | {employee.email}
+        </div>
       </div>
-      <div>
-        {employee.mobileNumber} | {employee.email}
-      </div>
-      <div>
+      <div className={styles.links}>
         <Link to={`/employees/${employee.id}`}>View</Link> |{" "}
-        <Link to={`employees/${employee.id}/edit`}>Edit</Link> |{" "}
+        {/* <Link to={`employees/${employee.id}/edit`}>Edit</Link> |{" "} */}
         <button className={styles.deleteBtn} onClick={() => onRemove(employee.id)}>
           Remove
         </button>

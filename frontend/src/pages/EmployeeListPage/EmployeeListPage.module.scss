@@ -1,0 +1,15 @@
+.EmployeeListPage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.createBtn {
+  all: unset;
+  padding: 6px 10px;
+  width: fit-content;
+  background-color: #2b5097;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}

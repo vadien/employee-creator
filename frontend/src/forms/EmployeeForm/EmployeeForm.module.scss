@@ -1,0 +1,66 @@
+.EmployeeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  //   font-size: 12px;
+  padding-left: 30px;
+}
+
+.groupHeader {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputElement {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.inputField {
+  width: 25%;
+  padding: 4px 20px;
+  font-size: large;
+  border: 2px solid grey;
+  border-radius: 6px;
+}
+
+.radioElement {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.formButtons {
+  display: flex;
+  padding-top: 20px;
+  gap: 10px;
+}
+
+.submitBtn {
+  all: unset;
+  padding: 6px 10px;
+  width: fit-content;
+  background-color: #2b5097;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  all: unset;
+  padding: 6px 10px;
+  width: fit-content;
+  background-color: #eeeeee;
+  color: black;
+  border: 2px solid grey;
+  border-radius: 4px;
+  cursor: pointer;
+}

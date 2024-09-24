@@ -4,6 +4,7 @@ import { EmployeeFormData, schema } from "./schema";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
+import styles from "./EmployeeForm.module.scss";
 
 type FormType = "CREATE" | "EDIT";
 
@@ -47,70 +48,118 @@ const EmployeeForm = ({
     navigate("/");
   };
 
-  console.log(errors);
-
   return (
-    <>
+    <div className={styles.EmployeeForm}>
+      <h1>Add a new employee</h1>
+      <p>All visible fields are required.</p>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <h1>Personal Information</h1>
-          <label htmlFor="firstName">First Name</label>
-          <input id="firstName" type="text" {...register("firstName")} />
-          {errors.firstName && <small>{errors.firstName.message}</small>}
-          <br />
-          <label htmlFor="middleNames">Middle Names (if any)</label>
-          <input id="middleNames" type="text" {...register("middleNames")} />
-          {errors.middleNames && <small>{errors.middleNames.message}</small>}
-          <br />
-          <label htmlFor="lastName">Last Name</label>
-          <input id="lastName" type="text" {...register("lastName")} />
-          {errors.lastName && <small>{errors.lastName.message}</small>}
+        <div className={styles.inputGroup}>
+          <div className={styles.groupHeader}>Personal Information</div>
+          <div className={styles.inputElement}>
+            <label htmlFor="firstName">First Name</label>
+            <input
+              id="firstName"
+              type="text"
+              {...register("firstName")}
+              className={styles.inputField}
+            />
+            {errors.firstName && <small>{errors.firstName.message}</small>}
+          </div>
+          <div className={styles.inputElement}>
+            <label htmlFor="middleNames">Middle Names (if any)</label>
+            <input
+              id="middleNames"
+              type="text"
+              {...register("middleNames")}
+              className={styles.inputField}
+            />
+            {errors.middleNames && <small>{errors.middleNames.message}</small>}
+          </div>
+          <div className={styles.inputElement}>
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              id="lastName"
+              type="text"
+              {...register("lastName")}
+              className={styles.inputField}
+            />
+            {errors.lastName && <small>{errors.lastName.message}</small>}
+          </div>
         </div>
-        <div>
-          <h1>Contact details</h1>
-          <label htmlFor="email">Email address</label>
-          <input id="email" type="text" {...register("email")} />
-          {errors.email && <small>{errors.email.message}</small>}
-          <br />
-          <label htmlFor="mobileNumber">Mobile phone</label>
-          <input id="mobileNumber" type="text" {...register("mobileNumber")} />
-          {errors.mobileNumber && <small>{errors.mobileNumber.message}</small>}
-          <br />
-          <label htmlFor="address">Home address</label>
-          <input id="address" type="text" {...register("address")} />
-          {errors.address && <small>{errors.address.message}</small>}
+        <div className={styles.inputGroup}>
+          <div className={styles.groupHeader}>Contact details</div>
+          <div className={styles.inputElement}>
+            <label htmlFor="email">Email address</label>
+            <input
+              id="email"
+              type="text"
+              {...register("email")}
+              className={styles.inputField}
+            />
+            {errors.email && <small>{errors.email.message}</small>}
+          </div>
+          <div className={styles.inputElement}>
+            <label htmlFor="mobileNumber">Mobile phone</label>
+            <input
+              id="mobileNumber"
+              type="text"
+              {...register("mobileNumber")}
+              className={styles.inputField}
+            />
+            {errors.mobileNumber && <small>{errors.mobileNumber.message}</small>}
+          </div>
+          <div className={styles.inputElement}>
+            <label htmlFor="address">Home address</label>
+            <input
+              id="address"
+              type="text"
+              {...register("address")}
+              className={styles.inputField}
+            />
+            {errors.address && <small>{errors.address.message}</small>}
+          </div>
         </div>
-        <div>
-          <h1>Employment Information</h1>
+        <div className={styles.inputGroup}>
+          <div className={styles.groupHeader}>Employment Information</div>
           <div>
             <legend>Contract type?</legend>
-            <div>
+            <div className={styles.radioElement}>
               <input
                 type="radio"
                 id="permanent"
-                value="permanent"
+                value="Permanent"
                 defaultChecked
                 {...register("contractType")}
               />
               <label htmlFor="permanent">Permanent</label>
             </div>
-            <div>
+            <div className={styles.radioElement}>
+              <input
+                type="radio"
+                id="contract"
+                value="Contract"
+                {...register("contractType")}
+              />
+              <label htmlFor="contract">Contract</label>
+            </div>
+            <div className={styles.radioElement}>
               <input
                 type="radio"
                 id="casual"
-                value="casual"
+                value="Casual"
                 {...register("contractType")}
               />
               <label htmlFor="casual">Casual</label>
             </div>
           </div>
-          <div>
+          <div className={styles.inputElement}>
             <label htmlFor="startDate">Start date</label>
             <input
               type="text"
               id="startDate"
               {...register("startDate", { valueAsDate: true })}
               placeholder="YYYY-MM-DD"
+              className={styles.inputField}
             />
             {errors.startDate && <small>{errors.startDate.message}</small>}
           </div>
@@ -123,24 +172,27 @@ const EmployeeForm = ({
             <label htmlFor="currentEmployee">Is a current employee</label>
           </div>
           {!watchCurrentEmployee && (
-            <div>
+            <div className={styles.inputElement}>
               <label htmlFor="endDate">End date</label>
               <input
                 type="text"
                 id="endDate"
                 {...register("endDate", { valueAsDate: true })}
                 placeholder="YYYY-MM-DD"
+                className={styles.inputField}
               />
               {errors.endDate && <small>{errors.endDate.message}</small>}
             </div>
           )}
         </div>
-        <div>
-          <input type="submit" value="Save" />
-          <button onClick={(e) => cancelBtn(e)}>Cancel</button>
+        <div className={styles.formButtons}>
+          <input type="submit" value="Save" className={styles.submitBtn} />
+          <button onClick={(e) => cancelBtn(e)} className={styles.cancelBtn}>
+            Cancel
+          </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

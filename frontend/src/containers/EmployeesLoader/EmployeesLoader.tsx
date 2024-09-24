@@ -30,11 +30,6 @@ const EmployeesLoader = () => {
 
   return (
     <div>
-      EmployeesLoader
-      {/* {employees &&
-        employees.map((em) => (
-          <EmployeeCard key={em.id} employee={em} onRemove={onRemove} />
-        ))} */}
       {queryEmployees.data?.map((em) => (
         <EmployeeCard key={em.id} employee={em} onRemove={removeMutation.mutate} />
       ))}
