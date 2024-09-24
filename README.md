@@ -44,6 +44,11 @@ TBD!
 
 ## Change logs
 
+### 2024-09-23
+
+- Implement dark mode using Redux
+- Styling pass
+
 ### 2024-09-18
 
 - Fixed error preventing new employee creation when `currentEmployee = true` (see Challenges below)

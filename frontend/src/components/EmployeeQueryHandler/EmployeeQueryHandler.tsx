@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import EmployeePageLoader from "../../containers/EmployeePageLoader/EmployeePageLoader";
 import EmployeeForm from "../../forms/EmployeeForm/EmployeeForm";
 import EmployeeListPage from "../../pages/EmployeeListPage/EmployeeListPage";
@@ -11,6 +11,7 @@ import {
 } from "../../services/employee-services";
 
 const EmployeeQueryHandler = () => {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const queryEmployees = useQuery({
     queryKey: ["employeeFetch"],
@@ -19,6 +20,7 @@ const EmployeeQueryHandler = () => {
 
   const onCreateSubmit = async (data: EmployeeFormData) => {
     await createEmployee(data);
+    navigate("/");
   };
 
   const onEditSubmit = async (data: EmployeeFormData, id: number) => {

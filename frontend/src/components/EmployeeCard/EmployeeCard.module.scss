@@ -1,7 +1,6 @@
 .EmployeeCard {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -10,18 +9,27 @@
   font-weight: 400;
 }
 
-.employeeName,
-.links {
-  font-weight: 500;
+.cardDark {
+  background-color: #222;
 }
 
-.employeeDetails {
-  color: rgb(85, 85, 85);
+.detailsLight {
+  color: #555;
+}
+.detailsDark {
+  color: #aaa;
 }
 
 .deleteBtn {
   all: unset;
   color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.deleteBtnDark {
+  all: unset;
+  color: #0080ff;
   text-decoration: underline;
   cursor: pointer;
 }
