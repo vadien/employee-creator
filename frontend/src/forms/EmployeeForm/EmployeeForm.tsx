@@ -16,9 +16,18 @@ interface EmployeeFormProps {
 
 const EmployeeForm = ({
   formType = "CREATE",
-  // defaultValues = {
-  //   endDate: "",
-  // },
+  defaultValues = {
+    firstName: "",
+    middleNames: "",
+    lastName: "",
+    email: "",
+    mobileNumber: "",
+    address: "",
+    contractType: "",
+    startDate: "",
+    currentEmployee: false,
+    endDate: "",
+  },
   onSubmit,
 }: EmployeeFormProps) => {
   const navigate = useNavigate();
@@ -29,15 +38,14 @@ const EmployeeForm = ({
     formState: { errors, isSubmitSuccessful },
     handleSubmit,
     setValue,
-  } = useForm<EmployeeFormData>({ resolver: zodResolver(schema) });
+  } = useForm<EmployeeFormData>({ resolver: zodResolver(schema), defaultValues });
   const queryClient = useQueryClient();
-
   const watchCurrentEmployee = watch("currentEmployee");
 
   // prevents "Invalid Date" being passed when field hidden
   useEffect(() => {
     if (!watchCurrentEmployee) {
-      setValue("endDate", undefined);
+      setValue("endDate", "");
     }
   }, [watchCurrentEmployee]);
 
@@ -47,6 +55,8 @@ const EmployeeForm = ({
     e.preventDefault();
     navigate("/");
   };
+
+  console.log(errors);
 
   return (
     <div className={styles.EmployeeForm}>
@@ -157,7 +167,7 @@ const EmployeeForm = ({
             <input
               type="text"
               id="startDate"
-              {...register("startDate", { valueAsDate: true })}
+              {...register("startDate")}
               placeholder="YYYY-MM-DD"
               className={styles.inputField}
             />
@@ -177,7 +187,7 @@ const EmployeeForm = ({
               <input
                 type="text"
                 id="endDate"
-                {...register("endDate", { valueAsDate: true })}
+                {...register("endDate")}
                 placeholder="YYYY-MM-DD"
                 className={styles.inputField}
               />

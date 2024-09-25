@@ -1,6 +1,16 @@
 .EmployeePage {
-  padding-left: 30px;
+  padding-top: 3rem;
+  padding-left: 3rem;
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100vh;
+}
+
+.pageDark {
+  background-color: #333;
+  color: #eee;
 }
 
 .groupHeader {
@@ -16,6 +26,25 @@
   font-weight: bold;
 }
 
-.formerEmployee {
+.error {
   color: red;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  all: unset;
+  padding: 6px 10px;
+  width: fit-content;
+  background-color: #3d77e3;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #2b5097;
 }

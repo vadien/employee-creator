@@ -9,6 +9,7 @@ import {
   createEmployee,
   updateEmployee,
 } from "../../services/employee-services";
+import EditEmployeePage from "../../pages/EditEmployeePage/EditEmployeePage";
 
 const EmployeeQueryHandler = () => {
   const navigate = useNavigate();
@@ -39,10 +40,7 @@ const EmployeeQueryHandler = () => {
       <Routes>
         <Route path="/" element={<EmployeeListPage />}></Route>
         <Route path="/employees/:id" element={<EmployeePageLoader />}></Route>
-        <Route
-          path="/employees/:id/edit"
-          element={<EmployeeForm onSubmit={onEditSubmit} />}
-        ></Route>
+        <Route path="/employees/:id/edit" element={<EditEmployeePage />}></Route>
         <Route
           path="/employees/create"
           element={<EmployeeForm onSubmit={onCreateSubmit} />}

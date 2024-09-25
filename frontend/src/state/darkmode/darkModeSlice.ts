@@ -13,7 +13,8 @@ const darkModeSlice = createSlice({
   initialState,
   reducers: {
     toggle: (state) => {
-      // can only write "mutating" code when using createSlice
+      // createSlice allows you to write code that looks like it will mutate
+      // state, even though it won't
       state.isDarkMode = !state.isDarkMode;
     },
   },

@@ -23,10 +23,26 @@ const EmployeeCard = ({ employee, onRemove }: EmployeeCard) => {
         </div>
       </div>
       <div className={styles.links}>
-        <Link to={`/employees/${employee.id}`}>View</Link> |{" "}
-        {/* <Link to={`employees/${employee.id}/edit`}>Edit</Link> |{" "} */}
+        <Link
+          to={`/employees/${employee.id}`}
+          className={`${styles.button} ${
+            darkMode ? styles.btnDark : styles.btnLight
+          }`}
+        >
+          View
+        </Link>{" "}
+        <Link
+          to={`employees/${employee.id}/edit`}
+          className={`${styles.button} ${
+            darkMode ? styles.btnDark : styles.btnLight
+          }`}
+        >
+          Edit
+        </Link>{" "}
         <button
-          className={darkMode ? styles.deleteBtnDark : styles.deleteBtn}
+          className={`${styles.button} ${
+            darkMode ? styles.btnDark : styles.btnLight
+          }`}
           onClick={() => onRemove(employee.id)}
         >
           Remove

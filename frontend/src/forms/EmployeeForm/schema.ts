@@ -21,9 +21,9 @@ export const schema = z
       .regex(mobRegex, { message: "Must be a valid Australian mobile number" }),
     address: z.string(),
     contractType: z.string(),
-    startDate: z.date(),
+    startDate: z.string(),
     currentEmployee: z.boolean(),
-    endDate: z.date().optional(),
+    endDate: z.string(),
   })
   .refine(
     ({ currentEmployee, endDate }) => {

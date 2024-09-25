@@ -10,7 +10,7 @@
 }
 
 .cardDark {
-  background-color: #222;
+  background-color: #333;
 }
 
 .detailsLight {
@@ -20,16 +20,20 @@
   color: #aaa;
 }
 
-.deleteBtn {
+.button {
   all: unset;
-  color: blue;
-  text-decoration: underline;
+  padding: 6px 10px;
+  width: fit-content;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.deleteBtnDark {
-  all: unset;
-  color: #0080ff;
-  text-decoration: underline;
-  cursor: pointer;
+.btnLight {
+  background-color: #2b5097;
+  color: white;
+}
+
+.btnDark {
+  background-color: #1d3768;
+  color: #eee;
 }
