@@ -28,6 +28,7 @@
   width: fit-content;
   border-radius: 4px;
   cursor: pointer;
+  border: 2px solid #2b5097;
 }
 
 .btnLight {
@@ -38,4 +39,10 @@
 .btnDark {
   background-color: #1d3768;
   color: #eee;
+}
+
+.inactiveBtn {
+  background-color: #eeeeee;
+  color: black;
+  border: 2px solid grey;
 }

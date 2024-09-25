@@ -14,6 +14,7 @@ interface EmployeeFormProps {
 }
 
 const EmployeeForm = ({
+  formType = "CREATE",
   defaultValues = {
     firstName: "",
     middleNames: "",
@@ -57,7 +58,11 @@ const EmployeeForm = ({
 
   return (
     <div className={styles.EmployeeForm}>
-      <h1>Add a new employee</h1>
+      {formType === "CREATE" ? (
+        <h1>Add a new employee</h1>
+      ) : (
+        <h1>Edit an existing employee</h1>
+      )}
       <p>All visible fields are required.</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputGroup}>

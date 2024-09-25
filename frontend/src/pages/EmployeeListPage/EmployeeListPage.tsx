@@ -4,10 +4,22 @@ import styles from "./EmployeeListPage.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../state/store";
 import { toggle } from "../../state/darkmode/darkModeSlice";
+import { sortByLastName, unsetIsSorted } from "../../state/employees/employeesSlice";
+import { useQueryClient } from "@tanstack/react-query";
 
 const EmployeeListPage = () => {
   const darkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
+  const isSorted = useSelector((state: RootState) => state.employees.isSorted);
   const dispatch = useDispatch();
+  const queryClient = useQueryClient();
+  const handleSortBtnClick = () => {
+    if (!isSorted) {
+      dispatch(sortByLastName());
+    } else {
+      queryClient.invalidateQueries({ queryKey: ["employeeFetch"] });
+      dispatch(unsetIsSorted());
+    }
+  };
 
   return (
     <div
@@ -25,6 +37,14 @@ const EmployeeListPage = () => {
         >
           New Employee
         </Link>
+        <button
+          className={`${styles.button} ${
+            isSorted ? styles.btnLight : styles.inactiveBtn
+          }`}
+          onClick={() => handleSortBtnClick()}
+        >
+          Sort by Name
+        </button>
         <button
           className={`${styles.button} ${
             darkMode ? styles.btnDark : styles.btnLight
