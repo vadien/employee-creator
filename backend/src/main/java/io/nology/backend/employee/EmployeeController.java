@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -45,6 +46,15 @@ public class EmployeeController {
         }
         Employee foundEmployee = result.get();
         return new ResponseEntity<Employee>(foundEmployee, HttpStatus.OK);
+    }
+
+    @PutMapping("{id}/edit")
+    public ResponseEntity<Employee> updateEmployeeById(@PathVariable Long id,
+            @Valid @RequestBody CreateEmployeeDTO data) throws Exception {
+        Optional<Employee> result = this.employeeService.updateEmployeeById(id, data);
+        Employee updatedEmployee = result.orElseThrow(() -> new NotFoundException("Could not find post for update"));
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
+
     }
 
     @DeleteMapping("/{id}")

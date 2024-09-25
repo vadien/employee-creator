@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EmployeeFormData, schema } from "./schema";
 import { useNavigate } from "react-router-dom";
-import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import styles from "./EmployeeForm.module.scss";
 
@@ -15,7 +14,6 @@ interface EmployeeFormProps {
 }
 
 const EmployeeForm = ({
-  formType = "CREATE",
   defaultValues = {
     firstName: "",
     middleNames: "",
@@ -39,7 +37,6 @@ const EmployeeForm = ({
     handleSubmit,
     setValue,
   } = useForm<EmployeeFormData>({ resolver: zodResolver(schema), defaultValues });
-  const queryClient = useQueryClient();
   const watchCurrentEmployee = watch("currentEmployee");
 
   // prevents "Invalid Date" being passed when field hidden

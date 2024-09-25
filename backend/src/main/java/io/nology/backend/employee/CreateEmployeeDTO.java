@@ -34,7 +34,7 @@ public class CreateEmployeeDTO {
     private String startDate;
 
     // @Temporal(TemporalType.DATE)
-    // private String endDate;
+    private String endDate;
 
     private Boolean currentEmployee;
 
@@ -110,13 +110,13 @@ public class CreateEmployeeDTO {
         this.startDate = startDate;
     }
 
-    // public String getEndDate() {
-    // return endDate;
-    // }
+    public String getEndDate() {
+        return endDate;
+    }
 
-    // public void setEndDate(String endDate) {
-    // this.endDate = endDate;
-    // }
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
 
     public Boolean getCurrentEmployee() {
         return currentEmployee;

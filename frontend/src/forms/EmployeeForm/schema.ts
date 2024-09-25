@@ -18,12 +18,12 @@ export const schema = z
     mobileNumber: z
       .string()
       .length(10, { message: "Must be exactly 10 digits" })
-      .regex(mobRegex, { message: "Must be a valid Australian mobile number" }),
+      .regex(mobRegex, { message: "Must be a valid Australian mobile" }),
     address: z.string(),
     contractType: z.string(),
     startDate: z.string(),
     currentEmployee: z.boolean(),
-    endDate: z.string(),
+    endDate: z.string().nullish(),
   })
   .refine(
     ({ currentEmployee, endDate }) => {

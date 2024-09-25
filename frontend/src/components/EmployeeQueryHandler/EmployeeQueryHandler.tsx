@@ -24,10 +24,6 @@ const EmployeeQueryHandler = () => {
     navigate("/");
   };
 
-  const onEditSubmit = async (data: EmployeeFormData, id: number) => {
-    await updateEmployee(id, data);
-  };
-
   const createMutation = useMutation({
     mutationFn: onCreateSubmit,
     onSuccess: () => {
